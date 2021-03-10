@@ -1,0 +1,41 @@
+* 
+{
+    font-family: monospace;
+}
+
+#view
+{
+    border: 1px solid #000000;
+    background-color: azure;
+    margin-right: 20px;
+}
+
+/*#logoSide 
+{
+    display: flex;
+    flex-direction: column;
+    min-width: 220px;
+}
+
+#coords 
+{
+    display: inline-block;
+}
+
+#controlInput 
+{
+    margin-right: 10px;
+}*/
+
+main 
+{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.canvas
+{
+    border: 1px solid #444;
+    box-shadow: 0 0 5px 0 #000;
+}

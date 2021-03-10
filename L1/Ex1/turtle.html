@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Turtle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="turtle.css">
+</head>
+<body>
+    <canvas id="view" width="720" height="720"></canvas>
+    <form>
+        <input name="command" type="text" size="100" /><br>
+        <input type="button" value="Draw" onclick="execute(command.value)"/>
+        <input type="button" value="Clear" onclick="clear()"/>
+    </form>
+
+    <h1>Commands</h1>
+    <ul>
+        <li>Forward [fw]</li>
+        <li>Back [bk]</li>
+        <li>Left [lt]</li>
+        <li>Right [rt]</li>
+        <li>Reset</li>
+        <li>Repeat</li>
+    </ul>
+
+    <h1>Example</h1>
+    <ul>
+        <li>Square: repeat 4; forward 1; right 90</li>
+        <li>Pentagon: repeat 5; forward 1; right 72</li>
+        <li>Hexagon: repeat 6; forward 1; right 60</li>
+    </ul>
+
+    <script src="turtle.js"></script>
+</body>
+</html>
