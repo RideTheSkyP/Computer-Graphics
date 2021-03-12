@@ -1,0 +1,46 @@
+* 
+{
+    font-family: monospace;
+}
+
+main 
+{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+#field
+{
+    border: 1px solid #000000;
+    background-color: white;
+    margin-right: 20px;
+    float: left;
+}
+
+#fieldSide 
+{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    float: right;
+}
+
+#coords 
+{
+    display: inline-block;
+}
+
+#execButton
+{
+    background-color: white;
+    border: gray 1px solid;
+    color: black;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 8px;
+    cursor: pointer;
+}
