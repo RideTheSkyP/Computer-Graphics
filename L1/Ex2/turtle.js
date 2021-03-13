@@ -1,4 +1,4 @@
-var showTurtle = false;
+var showTurtle = true;
 var pendown = true;
 
 function modelToView(x, y) 
@@ -30,6 +30,7 @@ function forward(distance)
         view.beginPath();
         view.moveTo(oldPos[0], oldPos[1]);
         view.lineTo(newPos[0], newPos[1]);
+        view.closePath();
         view.stroke();
     }
     transform.x = xx;
@@ -59,6 +60,8 @@ function clearField()
 {
     view.fillStyle = "#FFF";
     view.fillRect(0, 0, view.canvas.width, view.canvas.height);
+    view.moveTo(view.canvas.width/2, view.canvas.height/2)
+    reset();
 }
 
 function executeCommand(command, value) 
@@ -121,7 +124,7 @@ function snowflake(length, levels)
     if (levels === 0)
     {
         forward(length);
-        return;
+        return false;
     }
     snowflake(length, levels-1);
     rotate(parseFloat(60), true);
@@ -134,23 +137,29 @@ function snowflake(length, levels)
 
 function snowflakeKoch(levels)
 {
-    var length = 1 / (levels * 2);
-    rotate(parseFloat(30), false);
-    pendown = false;
-    back(2*levels);
-    pendown = true;
-    rotate(parseFloat(30), true);
-    for (const i of Array(3).keys()) 
+    
+    levels = parseInt(levels);
+    var length = 1;
+
+    if (levels > 0)
+    {
+        length = length / levels;
+        length = length / levels;
+    }
+    
+    for (const i of Array(3).keys())
     {
         snowflake(length, levels);
         rotate(parseFloat(120), false);
     }
+    reset();
 }
 
 function reset() 
 {
+    console.log("Reset");
     transform = {"x" : 0.0, "y" : 0.0, "angle" : 90};
-    var startPos = modelToView(0, 0);
+    var startPos = modelToView(0, 720);
     view.moveTo(startPos[0], startPos[1]);
     drawTurtle();
 }
@@ -166,6 +175,5 @@ var sizes =
     "yMin" : -10,
     "yMax" : 10
 };
-console.log(sizes);
 var transform;
 reset();
