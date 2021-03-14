@@ -155,6 +155,40 @@ function snowflakeKoch(levels)
     reset();
 }
 
+function triangle(length, levels)
+{
+    if (levels===0)
+    {
+        for (const i of Array(3).keys()) 
+        {
+            forward(length);
+            rotate(120, true);
+        }
+    }
+    else
+    {
+        triangle(length/2, levels-1);
+        forward(length/2);
+        triangle(length/2, levels-1);
+        back(length/2);
+        rotate(parseFloat(60), true);
+        forward(length/2);
+        rotate(parseFloat(60), false);
+        triangle(length/2, levels-1);
+        rotate(parseFloat(60), true);
+        back(length/2);
+        rotate(parseFloat(60), false);
+    }
+}
+
+function triangleSierpinski(levels)
+{
+    levels = parseInt(levels);
+    rotate(parseFloat(90), false);
+    triangle(10, levels);
+    reset();
+}
+
 function reset() 
 {
     console.log("Reset");
