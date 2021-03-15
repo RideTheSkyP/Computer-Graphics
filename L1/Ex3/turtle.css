@@ -5,30 +5,28 @@
 
 main 
 {
-    display: flex;
-    justify-content: center;
+    display: block;
+    
     padding: 50px;
+}
+
+div 
+{
+    padding: 20px;
+}
+
+svg 
+{
+    display: block;
+    margin: auto;
+    fill: none;
+    stroke: black;
 }
 
 #field
 {
     border: 1px solid #000000;
     background-color: white;
-    margin-right: 20px;
-    float: left;
-}
-
-#fieldSide 
-{
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    float: right;
-}
-
-#coords 
-{
-    display: inline-block;
 }
 
 #execButton

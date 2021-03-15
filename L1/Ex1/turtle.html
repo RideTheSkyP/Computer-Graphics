@@ -7,30 +7,40 @@
     <link rel="stylesheet" href="turtle.css">
 </head>
 <body>
-    <canvas id="view" width="720" height="720"></canvas>
-    <form>
-        <input name="command" type="text" size="100" /><br>
-        <input type="button" value="Draw" onclick="execute(command.value)"/>
-        <input type="button" value="Clear" onclick="clear()"/>
+    <canvas id="field" width="720" height="720"></canvas>
+    <form id="fieldSide">
+        <textarea name="command" rows="8" cols="100" id="instructionsList"></textarea>
+        <input id="execButton" type="button" value="Draw" onclick="execute(command.value)"/>
+        <input id="execButton" type="button" value="Clear" onclick="clearField()"/>
+        <p id="coords"></p>
+    
+        <h4>Commands</h4>
+        <ul>
+            <li>Forward [fw]</li>
+            <li>Back [bk]</li>
+            <li>Left [lt]</li>
+            <li>Right [rt]</li>
+            <li>Reset</li>
+            <li>Repeat</li>
+        </ul>
+
+        <h4>Example</h4>
+        <ul>
+            <li>Square:<br>
+                    repeat 4<br>
+                    forward 1<br>
+                    right 90<br></li>
+            <li>Pentagon:<br>
+                    repeat 5<br>
+                    forward 1<br>
+                    right 72<br></li>
+            <li>Hexagon:<br>
+                    repeat 6<br>
+                    forward 1<br>
+                    right 60<br></li>
+        </ul>
+
     </form>
-
-    <h1>Commands</h1>
-    <ul>
-        <li>Forward [fw]</li>
-        <li>Back [bk]</li>
-        <li>Left [lt]</li>
-        <li>Right [rt]</li>
-        <li>Reset</li>
-        <li>Repeat</li>
-    </ul>
-
-    <h1>Example</h1>
-    <ul>
-        <li>Square: repeat 4; forward 1; right 90</li>
-        <li>Pentagon: repeat 5; forward 1; right 72</li>
-        <li>Hexagon: repeat 6; forward 1; right 60</li>
-    </ul>
-
     <script src="turtle.js"></script>
 </body>
 </html>

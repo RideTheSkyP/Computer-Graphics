@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <title>Turtle Fractals</title>
+    <title>SVG Fractals</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="turtle.css">
 </head>
+
 <body>
-    <canvas id="field" width="720" height="720"></canvas>
-    <form id="fieldSide">
+    <div>
+        <svg id="field" height="800" width="800"></svg>
+    </div>
+    <form id="fieldAfter">
         <input type="number" name="command" min="0" step="1"/>
         <input id="execButton" type="button" value="Draw Koch snowflake" onclick="snowflakeKoch(command.value)"/>
-        <input id="execButton" type="button" value="Draw Sierpinski triangle" onclick="triangleSierpinski(command.value)"/>
         <input id="execButton" type="button" value="Clear" onclick="clearField()"/>
     </form>
     <script src="turtle.js"></script>

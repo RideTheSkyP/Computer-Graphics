@@ -22,34 +22,36 @@ function forward(distance)
 {
     var xx = transform.x + distance * Math.cos((Math.PI / 180) * (-transform.angle));
     var yy = transform.y + distance * Math.sin((Math.PI / 180) * (-transform.angle));
-
     var oldPos = modelToView(transform.x, transform.y);
     var newPos = modelToView(xx, yy);
     view.beginPath();
     view.moveTo(oldPos[0], oldPos[1]);
     view.lineTo(newPos[0], newPos[1]);
     view.stroke();
-
     transform.x = xx;
     transform.y = yy;
 }
 
-function back(distance) 
+function back(distance)
 {
     forward(-distance);
 }
 
 function rotate(angle, direction) 
 {
-    if direction: 
+    if (direction === true)
+    {
         transform.angle += angle;
         transform.angle %= 360;
-    else:
+    }
+    else
+    {
         transform.angle -= angle;
         transform.angle %= 360;
+    }
 }
 
-function clear() 
+function clearField() 
 {
     view.fillStyle = "#FFF";
     view.fillRect(0, 0, view.canvas.width, view.canvas.height);
@@ -57,19 +59,19 @@ function clear()
 
 function executeCommand(command, value) 
 {
-    if (command === "forward" || command==="fw") 
+    if (command === "forward" || command === "fw") 
     {
         forward(parseFloat(value));
-    } 
-    else if (command === "back" || command==="bk") 
+    }
+    else if (command === "back" || command === "bk") 
     {
         back(parseFloat(value));
-    } 
-    else if (command === "left" || command==="lt") 
+    }
+    else if (command === "left" || command === "lt") 
     {
         rotate(parseFloat(value), true);
-    } 
-    else if (command === "right" || command==="rt")
+    }
+    else if (command === "right" || command === "rt")
     {
         rotate(parseFloat(value), false);
     }
@@ -81,7 +83,7 @@ function executeCommand(command, value)
 
 function execute(command) 
 {
-    var commands = command.split(";");
+    var commands = command.split("\n");
     var iters = 1;
     for (var j = 0; j < iters; j = j + 1) 
     {
@@ -94,17 +96,18 @@ function execute(command)
 
         for (; i < commands.length; i = i + 1) 
         {
-            commands[i] = commands[i].trim();
             var command = commands[i].split(" ");
-
-            var instruction = command[0].trim();
-            var value = command[1].trim();
-
-            if (i === 0 && instruction === "repeat") 
+            if (command.length == 2)
             {
-                iters = parseInt(value);
+                var instruction = command[0].trim();
+                var value = command[1].trim();
+
+                if (i === 0 && instruction === "repeat") 
+                {
+                    iters = parseInt(value);
+                }
+                executeCommand(instruction, value);
             }
-            executeCommand(instruction, value);
         }
     }
 }
@@ -117,7 +120,7 @@ function reset()
     drawTurtle();
 }
 
-var viewElement = document.getElementById("view");
+var viewElement = document.getElementById("field");
 var view = viewElement.getContext("2d");
 var sizes = 
 {
