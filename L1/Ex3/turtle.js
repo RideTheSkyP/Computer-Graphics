@@ -21,17 +21,16 @@ function newPoints(points, index)
     points.splice(index + 3, 0, {"x" : secondPoint[0], "y" : secondPoint[1]});
 }
 
-function generate(level)
+function generate(depth)
 {
     var points = [];
-    var width = field.getBoundingClientRect().width;
     var size = Math.sqrt(3) * width / 2;
     var delta = width * (1.0 - Math.sqrt(3) / 2.0) / 2.0;
     points.push({"x" : width / 2, "y" : 0});
     points.push({"x" : (width + size) / 2, "y" : Math.sqrt(3) * size / 2.0});
     points.push({"x" : (width - size) / 2, "y" : Math.sqrt(3) * size / 2.0});
 
-    for (var i = 1; i <= level - 1; i++)
+    for (var i = 1; i <= depth - 1; i++)
     {
         for (var j = 0; j < 3 * Math.pow(4, i - 1); j++)
         {
@@ -44,27 +43,57 @@ function generate(level)
 function drawSnowflake(points)
 {
     clearField();
-    var snowflake = "";
     for (const i of Array(points.length).keys())
     {
-        snowflake += `${points[i].x},${points[i].y} `;
+        shape += `${points[i].x},${points[i].y} `;
     }
-    field.innerHTML = `<polygon points = "${snowflake}"/>`;
+    field.innerHTML = `<polygon points = "${shape}"/>`;
 }
 
 function clearField()
 {
-    if (field.lastChild)
+    shape = "";
+    while (field.lastChild)
     {
         field.removeChild(field.lastChild);
     }
 }
 
-var field = document.getElementById("field");
-
-function snowflakeKoch(level)
+function snowflakeKoch(depth)
 {
-    level = parseInt(level);
-    var points = generate(level);
+    depth = parseInt(depth);
+    var points = generate(depth);
     drawSnowflake(points);
+}
+
+var field = document.getElementById("field");
+var width = field.getBoundingClientRect().width;
+var height = field.getBoundingClientRect().height;
+var shape = "";
+
+var sin30 = Math.pow(3, 1/2)/2;
+var cos30 = .5;
+
+function addTriangle(x, y, r, depth)
+{
+    if (depth > 0)
+    {
+        addTriangle(x, y-r/2, r/2, depth-1);
+        addTriangle(x-r*sin30/2, y+r*cos30/2, r/2, depth-1);
+        addTriangle(x+r*sin30/2, y+r*cos30/2, r/2, depth-1);
+        shape = `${x},${y-r} ${x-r*sin30},${y+r*cos30} ${x+r*sin30},${y+r*cos30} `;
+        field.innerHTML += `<polygon points = "${shape}"/>`;
+    }
+    else
+    {
+        return;
+    }
+}
+
+function triangleSierpinski(depth)
+{
+    var size =  Math.min(height, width);
+    clearField();
+    addTriangle(width/2, height*2/3, size*.55, depth);
+    console.log(field)
 }
