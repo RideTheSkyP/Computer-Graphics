@@ -1,0 +1,60 @@
+* 
+{
+    font-family: monospace;
+}
+
+main 
+{
+    display: block;
+    padding: 50px;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+}
+
+canvas 
+{
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.input 
+{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.info 
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#field
+{
+    border: 1px solid #000000;
+    background-color: white;
+}
+
+#execButton
+{
+    background-color: white;
+    border: gray 1px solid;
+    color: black;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 8px;
+    cursor: pointer;
+}
+
+#errorBox 
+{
+    color: red;
+}

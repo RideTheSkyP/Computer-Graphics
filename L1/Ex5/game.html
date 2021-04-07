@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>3D Turtle Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <canvas id="field" width="800" height="800" style="border:1px solid;">
+        Your browser does not support the canvas element.
+    </canvas>
+
+    <div class="input">
+        <textarea id="inp" rows="10" cols="40"></textarea>
+        <button id="execButton">Run</button>
+        <span id="info"></span>
+
+        <h4>Commands</h4>
+        <ul>
+            <li>forward</li>
+            <li>alpha</li>
+            <li>beta</li>
+            <li>penup</li>
+            <li>pendown</li>
+            <li>clear</li>
+        </ul>
+
+        <h4>Example program</h4>
+        <ul>
+            <li>forward 100<br>
+				alpha 120<br>
+				forward 100<br>
+				alpha 120<br>
+				forward 100<br>
+				alpha 120<br>
+				beta 30<br>
+			</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
