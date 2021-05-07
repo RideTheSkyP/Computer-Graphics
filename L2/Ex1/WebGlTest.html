@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>WebGL Test</title>
+</head>
+<body onload="init(-1);">
+    <canvas id="game-view" width="800" height="500"></canvas>
+
+    <div id="shapeChange">
+        <label><b>Shapes:</b>&nbsp;</label>
+        <div class="select">
+            <select id="shapeChoice">
+                <option value="Points">Points</option>
+                <option value="Line strip">Line strip</option>
+                <option value="Line loop">Line loop</option>
+                <option value="Lines">Lines</option>
+                <option value="Triangle strip">Triangle strip</option>
+                <option value="Triangle fan">Triangle fan</option>
+                <option value="Triangles">Triangles</option>
+            </select>
+        </div>
+    </div>
+
+    <form>
+        <label for="b-val">Binding value: </label>
+        <input name="number" id="b-val" type="number" min="0" max="5" step="1" value="2" />
+        <input id="b-click" type="button" value="Bind" onclick="bind(number.value);" />
+    </form>
+
+    <div id="colorChange">
+        <label><b>Color:</b>&nbsp;</label>
+        <div class="select">
+            <select id="colorChoice">
+                <option value="Yellow">Yellow</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Red">Red</option>
+                <option value="Orange">Orange</option>
+                <option value="Pink">Pink</option>
+                <option value="Random">Random</option>
+            </select>
+        </div>
+    </div>
+
+    <script src="webGlTest.js"></script>
+</body>
+</html>
