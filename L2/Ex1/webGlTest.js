@@ -8,7 +8,7 @@ var vertexShaderText =
         "   gl_PointSize = 4.0;",
         "   gl_Position = vec4(vertPosition, 0.0, 1.0);",
         "}"
-    ].join('\n');
+    ].join("\n");
 
 var fragmentShaderText =
     [
@@ -218,7 +218,6 @@ shapeSelect.onchange = function ()
             break
     }
 }
-
 
 var bind = function(index) 
 {
