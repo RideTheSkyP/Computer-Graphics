@@ -1,0 +1,50 @@
+html
+{
+    width: 100%;
+}
+
+body
+{
+    display: flex;
+}
+
+canvas
+{
+    width: 720px;
+    height: 720px;
+    border: 1px solid black;
+}
+
+nav
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu
+{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+}
+
+.menu:hover
+{
+    opacity: 0.5;
+}
+
+ul
+{
+  display: inline-block;
+  border-style: dashed;
+  padding: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+li
+{
+  list-style-type: none;
+  margin-bottom: 30px;
+}
