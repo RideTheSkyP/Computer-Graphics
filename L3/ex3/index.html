@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- W pliku shared wszystko to czego potrzebujemy dla rysowania wykresów(dla innych zadań też) [shaders, matrices, styles] -->
+        <link href="../shared/styles.css" rel="stylesheet"/>
+        <!-- W pliku utils ladowanie shaderów -->
+        <script src="../shared/utils.js"></script>
+        <!-- W pliku matrix ladowanie matryc do rysowania, w tym 3d -->
+        <script src="../shared/matrix.js"></script>
+        <!-- W pliku shaders są shadery -->
+        <script src="shaders.js"></script>
+        <!-- W pliku plot rysowanie, render i kierowanie grafikiem -->
+        <script src="plot.js"></script>
+        <!-- W pliku main ładowanie i nacisnienie klawisz -->
+        <script src="main.js"></script>
+        <title>Plot with color decay</title>
+    </head>
+
+    <body>
+        <canvas id="canvas">
+            Your browser doesn't support canvas element.
+        </canvas>
+        <ul>
+            <li>W: Move y+</li>
+            <li>S: Move y-</li>
+            <li>A: Move x+</li>
+            <li>D: Move x-</li>
+            <li>E: Move z+</li>
+            <li>Q: Move z-</li>
+            <li>↑: Rotate y-</li>
+            <li>↓: Rotate y+</li>
+            <li>←: Rotate x+</li>
+            <li>→: Rotate x-</li>
+        </ul>
+    </body>
+</html>
